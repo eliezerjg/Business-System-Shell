@@ -1,5 +1,5 @@
 ## System Core - Multiplatform Monolith Backend
-<hr/>
+
 
 <p>
 This project includes:
