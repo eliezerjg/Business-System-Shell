@@ -49,13 +49,13 @@
 		<!-- DB DRIVER -->
 
 
-		<!-- FOR REDUCE BOILER PLATE CODE -->
+		<!-- FOR REDUCE BOILERPLATE CODE -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- FOR REDUCE BOILER PLATE CODE -->
+		<!-- FOR REDUCE BOILERPLATE CODE -->
 
 		<!-- AUTH JWT -->
 		<dependency>
