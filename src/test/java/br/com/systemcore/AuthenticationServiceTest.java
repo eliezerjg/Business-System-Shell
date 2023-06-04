@@ -9,7 +9,7 @@ import br.com.systemcore.Auth.Service.AuthenticationService;
 import br.com.systemcore.Customer.Models.Customer;
 import br.com.systemcore.Customer.Models.Role;
 import br.com.systemcore.Customer.Repositories.CustomerRepository;
-import br.com.systemcore.Security.Utils.JwtService;
+import br.com.systemcore.Security.Configurations.JwtService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

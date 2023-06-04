@@ -8,7 +8,7 @@ import br.com.systemcore.Auth.Exceptions.UserNameNotFoundException;
 import br.com.systemcore.Customer.Models.Customer;
 import br.com.systemcore.Customer.Models.Role;
 import br.com.systemcore.Customer.Repositories.CustomerRepository;
-import br.com.systemcore.Security.Utils.JwtService;
+import br.com.systemcore.Security.Configurations.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;

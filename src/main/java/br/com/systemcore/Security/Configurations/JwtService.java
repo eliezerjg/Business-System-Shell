@@ -1,4 +1,4 @@
-package br.com.systemcore.Security.Utils;
+package br.com.systemcore.Security.Configurations;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

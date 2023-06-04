@@ -1,4 +1,4 @@
-package br.com.systemcore.Security.Utils;
+package br.com.systemcore.Security.Configurations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

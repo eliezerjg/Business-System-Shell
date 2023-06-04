@@ -1,6 +1,6 @@
 package br.com.systemcore;
 
-import br.com.systemcore.Security.Utils.JwtService;
+import br.com.systemcore.Security.Configurations.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
