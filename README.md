@@ -35,7 +35,7 @@ This project includes:
 <li> Swagger UI / Spring DOC. </li>
 <BR>
 
-<h4>Steps do getstarted:</h4>
+<h4>Steps to get started:</h4>
 <li>1 - Change the default private token in Auth for multiple instances.</li>
 <li>2 - Protect your FrontEnd with Cloudflare DNS.</li>
 <li>3 - Follow the Structures folder and add your business logic.</li>
