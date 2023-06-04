@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "ff0087c6-5915-4036-9986-a228c850ce07",
+		"name": "System Core",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24526626"
+	},
+	"item": [
+		{
+			"name": "Core (AUTH)",
+			"item": [
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Update Customers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJFUzI1NiJ9.eyJzdWIiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg1ODk5MjE1LCJleHAiOjE2ODU5MDEwMTV9.sjm-p91tt1iMx-BYJjo3uIAXeem8_wGUFfNYDoSTe9pyOFhWBh4bDjSVUseahhoFDLsRM6UNbji3ccHYG-sv-A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Janinho Doe\",\r\n    \"birthDate\": \"1990-01-01T00:00:00.000+00:00\",\r\n    \"personNrDocument\": \"12345678901\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"status\": true,\r\n    \"usingMonthPlan\": true,\r\n    \"credits\": 1000,\r\n    \"password\": \"senha123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customers/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Customer",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customers/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "System Functions",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Security (PUBLIC)",
+			"item": [
+				{
+					"name": "Secured Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"user\": \"johndoe\",\r\n  \"password\": \"123456\",\r\n  \"email\": \"johndoe@example.com\",\r\n  \"birthDate\": \"2000-01-01\",\r\n  \"personNrDocument\": \"123.456.789-00\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Secured Authenticate (login)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
