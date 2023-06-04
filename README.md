@@ -31,7 +31,7 @@ This project includes:
 <li>Default treatments for exception handling (with http status codes)</li>
 <BR>
 
-<h4>Documentaion:</h4>
+<h4>Documentation:</h4>
 <li> Swagger UI / Spring DOC. </li>
 <BR>
 
