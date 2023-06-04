@@ -1,4 +1,4 @@
-## System Core - Multiplatform Monolith Backend
+## Business System Shell - Multiplatform Monolith Backend
 
 
 <p>
