@@ -8,7 +8,7 @@ This project includes:
 <h4>Properties:</h4>
 <li>Production and Development profile</li>
 <BR>
-
+ 
 
 <h4>Spring Security Endpoints Protection:</h4>
 <li>Public Registration and login</li>
