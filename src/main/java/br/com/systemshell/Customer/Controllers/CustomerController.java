@@ -1,5 +1,6 @@
 package br.com.systemshell.Customer.Controllers;
 
+import br.com.systemshell.Customer.DTO.UpdatedCustomerResponse;
 import br.com.systemshell.Customer.Models.Customer;
 import br.com.systemshell.Customer.Services.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class CustomerController {
     private CustomerServiceImpl customerServiceImpl;
 
     @PutMapping("/{id}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer updatedCustomer) {
+    public ResponseEntity<UpdatedCustomerResponse> updateCustomer(@PathVariable Long id, @RequestBody Customer updatedCustomer) {
         Optional<Customer> customerOptional = customerServiceImpl.findCustomerById(id);
 
         if (customerOptional.isPresent()) {
@@ -23,8 +24,7 @@ public class CustomerController {
             customer.setName(updatedCustomer.getName());
             customer.setBirthDate(updatedCustomer.getBirthDate());
             customer.setEmail(updatedCustomer.getEmail());
-            updatedCustomer = customerServiceImpl.updateCustomer(customerOptional.get());
-            return ResponseEntity.ok(updatedCustomer);
+            return ResponseEntity.ok(new UpdatedCustomerResponse(customerOptional.get()));
         } else {
             return ResponseEntity.notFound().build();
         }
