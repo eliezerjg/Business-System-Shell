@@ -52,7 +52,7 @@ public class CustomerServiceImpl implements ICustomer {
         return customerRepository.save(customer);
     }
 
-
+    @Override
     public UpdatedCustomerResponse updateCustomer(Long id, Customer updatedCustomer) {
         Customer customer = this.findCustomerById(id).orElseThrow(() -> new UserNotFoundException("Usuário não encontrado."));
         customer.setName(updatedCustomer.getName());

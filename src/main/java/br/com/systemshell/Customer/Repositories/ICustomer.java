@@ -1,6 +1,7 @@
 package br.com.systemshell.Customer.Repositories;
 
 import br.com.systemshell.Customer.DTO.CustomerResponse;
+import br.com.systemshell.Customer.DTO.UpdatedCustomerResponse;
 import br.com.systemshell.Customer.Models.Customer;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface ICustomer {
     Optional<Customer> findCustomerById(Long id);
 
     Customer registerCustomer(Customer customer);
+    UpdatedCustomerResponse updateCustomer(Long id, Customer updatedCustomer);
 
 }
