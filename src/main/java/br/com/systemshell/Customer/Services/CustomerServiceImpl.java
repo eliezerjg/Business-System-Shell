@@ -1,11 +1,14 @@
 package br.com.systemshell.Customer.Services;
 
 import br.com.systemshell.Auth.DTO.RegisterRequest;
+import br.com.systemshell.Auth.Exceptions.UserNotFoundException;
 import br.com.systemshell.Customer.DTO.CustomerResponse;
+import br.com.systemshell.Customer.DTO.UpdatedCustomerResponse;
 import br.com.systemshell.Customer.Models.Customer;
 import br.com.systemshell.Customer.Repositories.CustomerRepository;
 import br.com.systemshell.Customer.Repositories.ICustomer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,13 +52,19 @@ public class CustomerServiceImpl implements ICustomer {
         return customerRepository.save(customer);
     }
 
-    @Override
-    public Customer updateCustomer(Customer customer) {
-        return customerRepository.save(customer);
+
+    public UpdatedCustomerResponse updateCustomer(Long id, Customer updatedCustomer) {
+        Customer customer = this.findCustomerById(id).orElseThrow(() -> new UserNotFoundException("Usuário não encontrado."));
+        customer.setName(updatedCustomer.getName());
+        customer.setBirthDate(updatedCustomer.getBirthDate());
+        customer.setEmail(updatedCustomer.getEmail());
+        UpdatedCustomerResponse lastUpdatedCustomer = new UpdatedCustomerResponse(customerRepository.save(updatedCustomer));
+        return lastUpdatedCustomer;
     }
 
     @Override
-    public void deleteCustomer(Customer customer) {
+    public void deleteCustomer(Long id) {
+        Customer customer = this.findCustomerById(id).orElseThrow(() -> new UserNotFoundException("Usuário não encontrado."));
         customerRepository.delete(customer);
     }
 

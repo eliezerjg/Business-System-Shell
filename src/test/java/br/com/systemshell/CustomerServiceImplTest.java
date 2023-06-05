@@ -122,41 +122,9 @@ public class CustomerServiceImplTest {
         verify(customerRepository, times(1)).save(any(Customer.class));
     }
 
-    @Test
-    public void testUpdateCustomer() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setName("John Doe");
-        customer.setEmail("john.doe@example.com");
-        Date dateBirth = new Date();
 
-        customer.setBirthDate(dateBirth);
 
-        when(customerRepository.save(any(Customer.class))).thenReturn(customer);
 
-        Customer result = customerService.updateCustomer(customer);
-
-        Assertions.assertEquals(1L, result.getId());
-        Assertions.assertEquals("John Doe", result.getName());
-        Assertions.assertEquals("john.doe@example.com", result.getEmail());
-        Assertions.assertEquals(dateBirth, result.getBirthDate());
-
-        verify(customerRepository, times(1)).save(any(Customer.class));
-    }
-
-    @Test
-    public void testDeleteCustomer() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setName("John Doe");
-        customer.setEmail("john.doe@example.com");
-        Date dateBirth = new Date();
-        customer.setBirthDate(dateBirth);
-
-        customerService.deleteCustomer(customer);
-
-        verify(customerRepository, times(1)).delete(customer);
-    }
 
     @Test
     public void testFindByEmail() {

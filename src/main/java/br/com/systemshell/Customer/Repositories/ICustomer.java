@@ -8,7 +8,8 @@ import java.util.Optional;
 
 public interface ICustomer {
     Optional<Customer> findByEmail(String email);
-    public void deleteCustomer(Customer customer);
+
+    public void deleteCustomer(Long id);
 
     List<CustomerResponse> listCustomers();
 
@@ -16,5 +17,4 @@ public interface ICustomer {
 
     Customer registerCustomer(Customer customer);
 
-    public Customer updateCustomer(Customer customer);
 }
