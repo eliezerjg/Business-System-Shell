@@ -18,7 +18,7 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     public ResponseEntity<UpdatedCustomerResponse> updateCustomer(@PathVariable Long id, @RequestBody Customer updatedCustomer) {
-       return ResponseEntity.ok(customerServiceImpl.updateCustomer(id, updatedCustomer));
+       return ResponseEntity.ok(customerServiceImpl.updateCustomer(id,updatedCustomer));
     }
 
     @DeleteMapping("/{id}")
