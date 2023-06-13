@@ -52,7 +52,7 @@ This project includes:
 
 <h4>For better use:</h4>
 <li>1 - Run the tests and give a look at Postman Collection.</li>
-<li>2 - SWAGGER DOCUMENTATION: https://localhost:8080/swagger-ui/index.html  .</li>
+<li>2 - SWAGGER DOCUMENTATION (run the project): https://localhost:8080/swagger-ui/index.html  .</li>
 
 
 
