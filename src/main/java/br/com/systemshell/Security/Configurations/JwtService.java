@@ -23,7 +23,7 @@ public class JwtService {
 
     public JwtService() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("EC");
-        ECGenParameterSpec ecSpec = new ECGenParameterSpec("secp256r1"); // Especificação da curva ECDSA
+        ECGenParameterSpec ecSpec = new ECGenParameterSpec("secp256r1");
         keyPairGenerator.initialize(ecSpec);
         keyPair = keyPairGenerator.generateKeyPair();
     }
@@ -50,7 +50,7 @@ public class JwtService {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(agora)
                 .setExpiration(expiracaoMeiaHora)
-                .signWith(SignatureAlgorithm.ES256, keyPair.getPrivate())
+                .signWith(keyPair.getPrivate(), SignatureAlgorithm.ES256)
                 .compact();
     }
 
