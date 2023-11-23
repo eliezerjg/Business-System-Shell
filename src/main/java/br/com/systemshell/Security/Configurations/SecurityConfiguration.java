@@ -20,10 +20,9 @@ public class SecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-    private final CloudflareIPRangeFetcher wafConfig;
 
     private final List<String> publicEndpoints = Arrays.asList("/auth/**", "/v3/**", "/swagger-ui/**");
-    private final List<String> allowedProxies = wafConfig.getIPRanges();
+    private final List<String> allowedProxies = CloudflareIPRangeFetcherSingleton.getInstance().getIPRanges();
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(

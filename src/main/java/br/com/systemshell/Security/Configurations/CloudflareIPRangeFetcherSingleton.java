@@ -13,13 +13,21 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@Component
-@NoArgsConstructor
-public class CloudflareIPRangeFetcher {
-
-    private final List<String> ipRanges = fetchIPRanges();
+public class CloudflareIPRangeFetcherSingleton {
+    private static CloudflareIPRangeFetcherSingleton instance;
+    private final List<String> ipRanges;
     private final List<String> urlIpRanges = Arrays.asList("https://www.cloudflare.com/ips-v4", "https://www.cloudflare.com/ips-v6");
 
+    private CloudflareIPRangeFetcherSingleton() {
+        this.ipRanges = fetchIPRanges();
+    }
+
+    public static synchronized CloudflareIPRangeFetcherSingleton getInstance() {
+        if (instance == null) {
+            instance = new CloudflareIPRangeFetcherSingleton();
+        }
+        return instance;
+    }
 
     public List<String> getIPRanges() {
         return ipRanges;
@@ -28,7 +36,6 @@ public class CloudflareIPRangeFetcher {
     private List<String> fetchIPRanges() {
         OkHttpClient client = new OkHttpClient();
         List<String> proxiesIpv4AndIpv6 = new ArrayList<String>();
-        assert urlIpRanges != null;
         urlIpRanges.forEach(url -> {
             Request request = new Request.Builder()
                     .url(url)
@@ -39,7 +46,6 @@ public class CloudflareIPRangeFetcher {
                     proxiesIpv4AndIpv6.addAll(Collections.emptyList());
                 }
 
-                assert response.body() != null;
                 String responseBody = response.body().string();
                 proxiesIpv4AndIpv6.addAll(Arrays.stream(responseBody.split("\n"))
                         .map(String::trim)
